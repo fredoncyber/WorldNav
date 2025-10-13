@@ -243,7 +243,7 @@ ${w["3day"].map(d=>`- ${d}`).join('\n')}`);
   const mode = getMode();
   const loc = $('locationInput').value.trim() || "Global";
   
-  if (mode === "live" && CONFIG.GOOGLE_MAPS_KEY !== "AIzaSyAaBiP9r3x0o_I6BssLqk6MErc4OVdk2r0") {
+  if (mode === "live" && CONFIG.GOOGLE_MAPS_KEY !== "PLEASE API KEY HERE") {
     try {
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(loc)}&key=${CONFIG.GOOGLE_MAPS_KEY}`
