@@ -239,47 +239,55 @@ ${hit.tips.map(a=>`- ${a}`).join('\n')}`);
 ${w["3day"].map(d=>`- ${d}`).join('\n')}`);
     }
 
-    async function fetchTraffic(){
-      const mode = getMode();
-      if (mode==="live" && CONFIG.GOOGLE_MAPS_KEY!=="PASTE_GOOGLE_MAPS_API_KEY_HERE"){
-        render('trafficResults', `**Live traffic**: integrate Google Directions API or Maps SDK.  
-Sample output will appear here once configured.`);
-      } else {
-        const data = await loadOffline();
-        const t = data.samples.traffic_examples[0];
-        render('trafficResults', `### Traffic (Example)
-From **${t.from}** to **${t.to}**
-- ${t.advice}`);
+   async function fetchPlaces(){
+  const mode = getMode();
+  const loc = $('locationInput').value.trim() || "Global";
+  
+  if (mode === "live" && CONFIG.GOOGLE_MAPS_KEY !== "AIzaSyAaBiP9r3x0o_I6BssLqk6MErc4OVdk2r0") {
+    try {
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(loc)}&key=${CONFIG.GOOGLE_MAPS_KEY}`
+      );
+      const data = await response.json();
+      
+      if (data.status !== "OK") {
+        render('placesResults', `⚠️ Error: ${data.status}  
+        Try another location or check API quota.`);
+        return;
       }
-    }
 
-    async function fetchVisa(){
-      const mode = getMode();
-      const from = "US"; const to = "France";
-      if (mode==="live"){
-        try{
-          const r = await fetch(`https://restcountries.com/v3.1/name/${to}`);
-          const j = await r.json();
-          render('visaResults', `### Visa / Travel Docs — **${from} → ${to}**
-- Country: ${j?.[0]?.name?.common || to}
-- Region: ${j?.[0]?.region || "n/a"}
-- Note: Always verify the latest visa policy with the consulate.`);
-          return;
-        } catch(e){ /* fallback below */ }
-      }
-      const data = await loadOffline();
-      render('visaResults', `### Visa / Travel Docs — **US → France**
-${data.samples.visa["US_to_France"]}`);
-    }
+      const results = data.results.slice(0, 10).map(p => `
+      - **${p.name}** (${p.formatted_address || "Address unavailable"})  
+        ⭐ Rating: ${p.rating || "N/A"}  
+        ${p.types ? p.types.slice(0, 3).join(", ") : ""}
+      `).join('\n');
 
-    $('btnSearch').addEventListener('click', () => {
-      showPlacesSection(); fetchPlaces();
-      showWeatherSection(); fetchWeather();
-    });
+      render('placesResults', `# Top Places in ${loc}\n${results}`);
+      return;
 
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js').catch(e=>console.log('SW failed', e));
+    } catch (error) {
+      render('placesResults', `❌ Failed to fetch live data: ${error.message}`);
+      return;
     }
-  </script>
-</body>
-</html>
+  }
+
+  // Fallback: manual/offline mode
+  const data = await loadOffline();
+  const hit = data.samples.destinations.find(
+    d => d.name.toLowerCase().includes(loc.toLowerCase())
+  ) || data.samples.destinations[0];
+
+  render('placesResults', `# ${hit.name}
+**Overview**: ${hit.overview}
+
+**Top attractions**
+${hit.top_attractions.map(a=>`- ${a}`).join('\n')}
+
+**Local food**
+${hit.food.map(a=>`- ${a}`).join('\n')}
+
+**Best time**: ${hit.best_time}
+
+**Tips**
+${hit.tips.map(a=>`- ${a}`).join('\n')}`);
+}
