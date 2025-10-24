@@ -1,169 +1,132 @@
 {
-  "meta": {
-    "version": 1,
-    "updated": "2025-10-12"
-  },
   "samples": {
     "destinations": [
       {
-        "name": "Paris, France",
-        "overview": "City of Light known for art, fashion, and cuisine.",
+        "name": "Austin, Texas, USA",
+        "overview": "A vibrant city known for live music, outdoor adventures, and a booming tech culture.",
         "top_attractions": [
-          "Eiffel Tower",
-          "Louvre Museum",
-          "Notre-Dame",
-          "Montmartre"
+          "Zilker Park",
+          "Barton Springs Pool",
+          "Texas State Capitol",
+          "6th Street Live Music District",
+          "Lady Bird Lake"
         ],
-        "food": [
-          "Boulangeries",
-          "Bistros",
-          "Cr\u00eaperies"
-        ],
-        "best_time": "Apr\u2013Jun, Sep\u2013Oct",
+        "food": ["BBQ", "Tacos", "Tex-Mex", "Craft Beer"],
+        "best_time": "March–May and September–November",
         "tips": [
-          "Buy museum passes",
-          "Use Metro",
-          "Book popular restaurants"
+          "Book early during SXSW Festival.",
+          "Try local food trucks for authentic flavors.",
+          "Bring sunscreen for outdoor venues."
         ]
       },
       {
-        "name": "Accra, Ghana",
-        "overview": "Vibrant coastal city with markets, nightlife, and rich history.",
+        "name": "Paris, France",
+        "overview": "The city of light and love, celebrated for art, fashion, and historic architecture.",
         "top_attractions": [
-          "Kwame Nkrumah Mausoleum",
-          "Makola Market",
-          "Labadi Beach"
+          "Eiffel Tower",
+          "Louvre Museum",
+          "Notre-Dame Cathedral",
+          "Montmartre",
+          "Seine River Cruise"
         ],
-        "food": [
-          "Waakye",
-          "Jollof",
-          "Kelewele"
-        ],
-        "best_time": "Nov\u2013Mar (dry season)",
+        "food": ["Croissants", "Baguettes", "Macarons", "French Wine"],
+        "best_time": "April–June and September–October",
         "tips": [
-          "Use ride-hailing",
-          "Carry cash for markets"
+          "Buy museum passes online to skip queues.",
+          "Avoid rush hours for major tourist spots.",
+          "Carry small cash for local cafes."
+        ]
+      },
+      {
+        "name": "London, United Kingdom",
+        "overview": "A historic and modern metropolis blending culture, art, and innovation.",
+        "top_attractions": [
+          "Big Ben",
+          "London Eye",
+          "Tower Bridge",
+          "Buckingham Palace",
+          "British Museum"
+        ],
+        "food": ["Fish and Chips", "Sunday Roast", "Afternoon Tea"],
+        "best_time": "March–May and September–November",
+        "tips": [
+          "Use an Oyster card for cheaper transport.",
+          "Carry an umbrella — weather changes fast!",
+          "Plan museum visits early in the day."
         ]
       },
       {
         "name": "Tokyo, Japan",
-        "overview": "Cutting-edge metropolis blending tradition and tech.",
+        "overview": "A futuristic city blending technology, culture, and tradition at every corner.",
         "top_attractions": [
-          "Senso-ji",
+          "Tokyo Tower",
           "Shibuya Crossing",
-          "Meiji Shrine",
-          "Tsukiji Outer Market"
+          "Senso-ji Temple",
+          "Akihabara",
+          "Ueno Park"
         ],
-        "food": [
-          "Sushi",
-          "Ramen",
-          "Okonomiyaki"
-        ],
-        "best_time": "Mar\u2013May, Oct\u2013Nov",
+        "food": ["Sushi", "Ramen", "Tempura", "Okonomiyaki"],
+        "best_time": "March–May and September–November",
         "tips": [
-          "IC cards for transit",
-          "Carry coin purse"
+          "Purchase a reloadable Suica card for travel.",
+          "Respect queueing etiquette in public transport.",
+          "Try convenience-store meals — surprisingly good!"
         ]
       },
       {
-        "name": "New York City, USA",
-        "overview": "Skyscrapers, Broadway, museums, and diverse food scenes.",
+        "name": "Nairobi, Kenya",
+        "overview": "East Africa’s gateway city known for its wildlife, culture, and growing tech scene.",
         "top_attractions": [
-          "Central Park",
-          "Statue of Liberty",
-          "MET",
-          "High Line"
+          "Nairobi National Park",
+          "Giraffe Centre",
+          "Karen Blixen Museum",
+          "Bomas of Kenya",
+          "David Sheldrick Wildlife Trust"
         ],
-        "food": [
-          "Bagels",
-          "Pizza",
-          "Food Trucks"
-        ],
-        "best_time": "Apr\u2013Jun, Sep\u2013Nov",
+        "food": ["Nyama Choma", "Ugali", "Chapati", "Samosas"],
+        "best_time": "June–October and December–February",
         "tips": [
-          "Subway is fastest",
-          "Book shows early"
-        ]
-      },
-      {
-        "name": "Cape Town, South Africa",
-        "overview": "Dramatic landscapes with beaches, Table Mountain, and vineyards.",
-        "top_attractions": [
-          "Table Mountain",
-          "V&A Waterfront",
-          "Boulders Beach"
-        ],
-        "food": [
-          "Braai",
-          "Cape Malay curry",
-          "Seafood"
-        ],
-        "best_time": "Oct\u2013Apr",
-        "tips": [
-          "Rent a car for day trips",
-          "Watch for wind on Table Mountain"
+          "Visit national parks early in the morning.",
+          "Avoid carrying large amounts of cash.",
+          "Try local markets for authentic crafts."
         ]
       }
     ],
     "weather": {
-      "Paris, France": {
-        "now": "19\u00b0C, partly cloudy",
-        "3day": [
-          "18\u201322\u00b0C, light showers",
-          "17\u201321\u00b0C, sunny intervals",
-          "16\u201320\u00b0C, cloudy"
-        ]
+      "Austin, Texas": {
+        "now": "Sunny, 27°C",
+        "3day": ["29°C - Sunny", "28°C - Cloudy", "30°C - Clear Skies"]
       },
-      "Accra, Ghana": {
-        "now": "28\u00b0C, humid, coastal breeze",
-        "3day": [
-          "29\u201331\u00b0C, humid",
-          "30\u201332\u00b0C, chance of showers",
-          "29\u201331\u00b0C, sunny"
-        ]
+      "Paris, France": {
+        "now": "Partly Cloudy, 21°C",
+        "3day": ["22°C - Sunny", "18°C - Light Rain", "20°C - Clear"]
+      },
+      "London, United Kingdom": {
+        "now": "Overcast, 18°C",
+        "3day": ["19°C - Cloudy", "17°C - Light Showers", "20°C - Sunny"]
       },
       "Tokyo, Japan": {
-        "now": "22\u00b0C, clear",
-        "3day": [
-          "21\u201324\u00b0C, sunny",
-          "20\u201323\u00b0C, light rain",
-          "19\u201322\u00b0C, sunny"
-        ]
+        "now": "Clear, 25°C",
+        "3day": ["26°C - Clear", "28°C - Sunny", "27°C - Partly Cloudy"]
       },
-      "New York City, USA": {
-        "now": "20\u00b0C, breezy",
-        "3day": [
-          "18\u201322\u00b0C, sunny",
-          "17\u201320\u00b0C, clouds",
-          "16\u201319\u00b0C, rain"
-        ]
-      },
-      "Cape Town, South Africa": {
-        "now": "17\u00b0C, windy",
-        "3day": [
-          "16\u201319\u00b0C, sun",
-          "15\u201318\u00b0C, clouds",
-          "14\u201317\u00b0C, showers"
-        ]
+      "Nairobi, Kenya": {
+        "now": "Sunny, 23°C",
+        "3day": ["24°C - Sunny", "22°C - Cloudy", "25°C - Clear"]
       }
-    },
-    "visa": {
-      "US_to_France": "Visa-free up to 90 days for tourism (Schengen). Passport valid 3+ months beyond stay.",
-      "Ghana_to_USA": "Visa required before travel. DS-160, interview, proof of ties and funds.",
-      "Japan_to_SouthAfrica": "Visa-free up to 90 days for tourism. Passport validity 30+ days beyond departure.",
-      "US_to_Ghana": "E-visa/consulate visa required; yellow fever vaccination certificate."
     },
     "traffic_examples": [
-      {
-        "from": "JFK Airport",
-        "to": "Times Square",
-        "advice": "Fastest ~35\u201350 min via Van Wyck \u2192 Midtown Tunnel (off-peak). Avoid 4\u20137pm."
-      },
-      {
-        "from": "Accra Mall",
-        "to": "Osu Oxford St",
-        "advice": "20\u201335 min; congested at 7\u20139am / 4\u20137pm. Use Liberation Rd."
-      }
-    ]
+      { "from": "Austin Downtown", "to": "Zilker Park", "advice": "Light traffic, 10 min via Barton Springs Rd." },
+      { "from": "Paris", "to": "Versailles", "advice": "Moderate traffic, 45 min via A13." },
+      { "from": "London", "to": "Heathrow Airport", "advice": "Expect congestion, best route via M4." },
+      { "from": "Tokyo", "to": "Shinjuku", "advice": "Smooth flow, 15 min by JR Line." },
+      { "from": "Nairobi", "to": "Westlands", "advice": "Busy during rush hour, 30–40 min average." }
+    ],
+    "visa": {
+      "US_to_France": "Visa-free for up to 90 days within the Schengen area.",
+      "UK_to_Japan": "Visa-free for stays up to 90 days.",
+      "Kenya_to_UK": "Visa required prior to arrival.",
+      "US_to_Kenya": "E-visa available online, valid for 90 days.",
+      "France_to_Japan": "Visa-free for short visits up to 90 days."
+    }
   }
 }
