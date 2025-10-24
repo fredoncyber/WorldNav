@@ -24,37 +24,47 @@
     .card-hover { transition: transform .2s ease, box-shadow .2s ease; }
     .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(93,92,222,.15);}
     .loading-spinner { border: 3px solid #f3f3f3; border-top: 3px solid #5D5CDE; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; }
+    @keyframes float {
+      0% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -10px); }
+      100% { transform: translate(-50%, 0); }
+    }
+    img[alt="Eagle Bird"] {
+      animation: float 6s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
+
+  <!-- HEADER -->
   <header class="gradient-bg text-white p-4 shadow-lg">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-3">
-       <img src="./icons/icon-192.png" alt="WorldNav Logo" class="w-24 h-24 mb-4 rounded-full shadow-lg">
+        <img src="./icons/icon-192.png" alt="WorldNav Logo" class="w-14 h-14 rounded-full shadow-md">
+        <h1 class="text-2xl font-bold">WorldNav</h1>
       </div>
       <p class="text-sm opacity-80">Your Global Travel Companion</p>
     </div>
   </header>
-<section class="relative bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 py-8 text-center overflow-hidden">
-  <!-- Decorative Eagle -->
-  <img src="./icons/eagle.png" alt="Eagle Bird" 
-     class="absolute opacity-20 dark:opacity-10 top-0 left-1/2 transform -translate-x-1/2 w-64 h-auto pointer-events-none select-none">
 
-  <div class="relative max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-primary mb-3 tracking-wide">Your Global Travel Companion</h2>
-    <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
-      WorldNav helps travelers explore the world smarter — find destinations, discover local attractions,
-      monitor live weather and traffic updates, and understand visa requirements before you go.
-      Whether you’re planning your next city escape or a cross-continent adventure, WorldNav keeps you informed and ready.
-    </p>
-  </div>
-</section>
-  
-    </p>
-  </div>
-</section>
+  <!-- HERO / INTRO -->
+  <section class="relative bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 py-10 text-center overflow-hidden">
+    <img src="./icons/eagle.png" alt="Eagle Bird"
+      class="absolute opacity-20 dark:opacity-10 top-0 left-1/2 transform -translate-x-1/2 w-64 h-auto pointer-events-none select-none">
 
+    <div class="relative max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-3 tracking-wide">Explore. Discover. Navigate.</h2>
+      <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+        WorldNav helps travelers explore the world smarter — find destinations, discover local attractions,
+        monitor live weather and traffic updates, and understand visa requirements before you go.
+        Whether you’re planning your next city escape or a cross-continent adventure, WorldNav keeps you informed and ready.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
   <main class="max-w-6xl mx-auto p-4">
+    <!-- Search -->
     <section class="mb-8">
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
         <h2 class="text-xl font-semibold mb-4 flex items-center">
@@ -62,7 +72,7 @@
         </h2>
         <div class="flex flex-col md:flex-row gap-4">
           <input type="text" id="locationInput" placeholder="Enter a city or country"
-                 class="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary bg-white dark:bg-gray-700">
+            class="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary bg-white dark:bg-gray-700">
           <button id="btnSearch" class="px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium transition-colors">
             <i class="fas fa-search mr-2"></i> Search
           </button>
@@ -70,33 +80,23 @@
       </div>
     </section>
 
+    <!-- Category Cards -->
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover cursor-pointer" onclick="showSection('placesSection')">
-        <div class="text-center">
-          <i class="fas fa-map-marked-alt text-blue-600 text-3xl mb-2"></i>
-          <h3 class="text-lg font-semibold">Places & Activities</h3>
-        </div>
+        <div class="text-center"><i class="fas fa-map-marked-alt text-blue-600 text-3xl mb-2"></i><h3 class="text-lg font-semibold">Places & Activities</h3></div>
       </div>
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover cursor-pointer" onclick="showSection('weatherSection')">
-        <div class="text-center">
-          <i class="fas fa-cloud-sun text-yellow-600 text-3xl mb-2"></i>
-          <h3 class="text-lg font-semibold">Weather</h3>
-        </div>
+        <div class="text-center"><i class="fas fa-cloud-sun text-yellow-600 text-3xl mb-2"></i><h3 class="text-lg font-semibold">Weather</h3></div>
       </div>
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover cursor-pointer" onclick="showSection('trafficSection')">
-        <div class="text-center">
-          <i class="fas fa-traffic-light text-red-600 text-3xl mb-2"></i>
-          <h3 class="text-lg font-semibold">Traffic</h3>
-        </div>
+        <div class="text-center"><i class="fas fa-traffic-light text-red-600 text-3xl mb-2"></i><h3 class="text-lg font-semibold">Traffic</h3></div>
       </div>
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover cursor-pointer" onclick="showSection('visaSection')">
-        <div class="text-center">
-          <i class="fas fa-passport text-green-600 text-3xl mb-2"></i>
-          <h3 class="text-lg font-semibold">Visa Info</h3>
-        </div>
+        <div class="text-center"><i class="fas fa-passport text-green-600 text-3xl mb-2"></i><h3 class="text-lg font-semibold">Visa Info</h3></div>
       </div>
     </section>
 
+    <!-- Dynamic Sections -->
     <section id="placesSection" class="hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
       <h2 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-map-marked-alt text-primary mr-2"></i> Places & Activities</h2>
       <div id="placesResults"></div>
@@ -118,38 +118,40 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="bg-gray-100 dark:bg-gray-800 mt-12 py-8">
     <div class="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-400">
       <i class="fas fa-globe-americas text-primary mr-2"></i> WorldNav — Making global travel easier and smarter
     </div>
   </footer>
 
+  <!-- SCRIPT -->
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
       const $ = id => document.getElementById(id);
       const sections = ['placesSection', 'weatherSection', 'trafficSection', 'visaSection'];
-
-      function hideSections() { sections.forEach(id => $(id).classList.add('hidden')); }
-      function showSection(id) { hideSections(); $(id).classList.remove('hidden'); }
+      const hideSections = () => sections.forEach(id => $(id).classList.add('hidden'));
+      const showSection = id => { hideSections(); $(id).classList.remove('hidden'); };
 
       async function loadOffline() {
-        try { const r = await fetch('./offline-data.json'); return await r.json(); }
-        catch { return { samples: { message: 'Offline data not available.' } }; }
+        try {
+          const r = await fetch('./offline-data.json');
+          return await r.json();
+        } catch {
+          console.error("offline-data.json not found.");
+          return null;
+        }
       }
 
       const data = await loadOffline();
+      if (!data) return;
 
-     $('btnSearch').addEventListener('click', () => {
-  const loc = $('locationInput').value.trim().toLowerCase();
+      $('btnSearch').addEventListener('click', () => {
+        const loc = $('locationInput').value.trim().toLowerCase();
+        const match = data.samples.destinations.find(d => d.name.toLowerCase().includes(loc)) || data.samples.destinations[0];
 
-  // Match city or fallback
-  const match = data.samples.destinations.find(d =>
-    d.name.toLowerCase().includes(loc)
-  ) || data.samples.destinations[0];
-
-  // Show destination info
-  $('placesResults').innerHTML = marked.parse(
-    `# ${match.name}
+        $('placesResults').innerHTML = marked.parse(
+          `# ${match.name}
 **Overview**: ${match.overview}
 
 **Top Attractions**
@@ -162,48 +164,32 @@ ${match.food.map(a => '- ' + a).join('\n')}
 
 **Travel Tips**
 ${match.tips.map(a => '- ' + a).join('\n')}`
-  );
+        );
 
-  // Weather info (from samples.weather)
-  const wkey = Object.keys(data.samples.weather).find(k =>
-    k.toLowerCase().includes(loc)
-  ) || Object.keys(data.samples.weather)[0];
-  const w = data.samples.weather[wkey];
-  $('weatherResults').innerHTML = marked.parse(
-    `### Weather — ${wkey}
+        const wkey = Object.keys(data.samples.weather).find(k => k.toLowerCase().includes(loc)) || Object.keys(data.samples.weather)[0];
+        const w = data.samples.weather[wkey];
+        $('weatherResults').innerHTML = marked.parse(
+          `### Weather — ${wkey}
 - Now: ${w.now}
 - Next 3 Days:
 ${w["3day"].map(d => '- ' + d).join('\n')}`
-  );
+        );
 
-  // Visa info (from samples.visa)
-  const visaEntries = Object.entries(data.samples.visa);
-  const visaMatch = visaEntries.find(([key]) =>
-    key.toLowerCase().includes(match.name.split(',')[1]?.trim().toLowerCase())
-  ) || visaEntries[0];
-  $('visaResults').innerHTML = marked.parse(
-    `### Visa Information
+        const visaEntries = Object.entries(data.samples.visa);
+        const visaMatch = visaEntries.find(([key]) => key.toLowerCase().includes(match.name.split(',')[1]?.trim().toLowerCase())) || visaEntries[0];
+        $('visaResults').innerHTML = marked.parse(
+          `### Visa Information
 ${visaMatch[0].replace(/_/g, ' → ')}  
 ${visaMatch[1]}`
-  );
+        );
 
-  // Traffic sample
-  const traffic = data.samples.traffic_examples[Math.floor(Math.random() * data.samples.traffic_examples.length)];
-  $('trafficResults').innerHTML = marked.parse(
-    `### Traffic — ${traffic.from} → ${traffic.to}
-${traffic.advice}`
-  );
+        const traffic = data.samples.traffic_examples[Math.floor(Math.random() * data.samples.traffic_examples.length)];
+        $('trafficResults').innerHTML = marked.parse(`### Traffic — ${traffic.from} → ${traffic.to}\n${traffic.advice}`);
 
-  // Reveal sections dynamically
-  hideSections();
-  $('placesSection').classList.remove('hidden');
-  $('weatherSection').classList.remove('hidden');
-  $('visaSection').classList.remove('hidden');
-  $('trafficSection').classList.remove('hidden');
-});
-
+        hideSections();
+        sections.forEach(id => $(id).classList.remove('hidden'));
+      });
     });
   </script>
 </body>
 </html>
-
