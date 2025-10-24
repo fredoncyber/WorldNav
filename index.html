@@ -26,6 +26,14 @@
     .loading-spinner { border: 3px solid #f3f3f3; border-top: 3px solid #5D5CDE; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
+  @keyframes float {
+  0% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+  100% { transform: translate(-50%, 0); }
+}
+img[alt="Eagle Bird"] {
+  animation: float 6s ease-in-out infinite;
+}
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
   <header class="gradient-bg text-white p-4 shadow-lg">
@@ -36,10 +44,10 @@
       <p class="text-sm opacity-80">Your Global Travel Companion</p>
     </div>
   </header>
-<section <section class="relative bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 py-8 text-center overflow-hidden">
+<section class="relative bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 py-8 text-center overflow-hidden">
   <!-- Decorative Eagle -->
   <img src="./icons/eagle.png" alt="Eagle Bird" 
-       class="absolute opacity-20 dark:opacity-10 top-0 left-1/2 transform -translate-x-1/2 w-64 h-auto pointer-events-none select-none">
+     class="absolute opacity-20 dark:opacity-10 top-0 left-1/2 transform -translate-x-1/2 w-64 h-auto pointer-events-none select-none">
 
   <div class="relative max-w-4xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-primary mb-3 tracking-wide">Your Global Travel Companion</h2>
@@ -47,6 +55,10 @@
       WorldNav helps travelers explore the world smarter — find destinations, discover local attractions,
       monitor live weather and traffic updates, and understand visa requirements before you go.
       Whether you’re planning your next city escape or a cross-continent adventure, WorldNav keeps you informed and ready.
+    </p>
+  </div>
+</section>
+  
     </p>
   </div>
 </section>
