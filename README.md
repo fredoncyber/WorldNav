@@ -44,11 +44,4 @@
   <em>Offline-first PWA – Works anywhere, even without internet!</em>
 </p>
 
----
-
-## ⚙️ Setup & Deployment
-
-### 🪄 1. Clone the Repository
-```bash
-git clone https://github.com/fredoncyber/WorldNav.git
-cd WorldNav
+-
