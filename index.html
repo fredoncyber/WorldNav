@@ -123,18 +123,69 @@
 
       const data = await loadOffline();
 
-      $('btnSearch').addEventListener('click', () => {
-        const loc = $('locationInput').value.trim().toLowerCase();
-        const match = data.samples.destinations.find(d => d.name.toLowerCase().includes(loc)) || data.samples.destinations[0];
-        $('placesResults').innerHTML = marked.parse(
-          `# ${match.name}\n**Overview**: ${match.overview}\n\n**Attractions:**\n${match.top_attractions.map(a => '- ' + a).join('\n')}\n\n**Food:**\n${match.food.map(a => '- ' + a).join('\n')}`
-        );
-        showSection('placesSection');
-      });
+     $('btnSearch').addEventListener('click', () => {
+  const loc = $('locationInput').value.trim().toLowerCase();
 
-      $('weatherResults').innerHTML = marked.parse("### Example Weather Data\n- Sunny, 25°C\n- Ideal for sightseeing.");
-      $('trafficResults').innerHTML = marked.parse("### Sample Traffic Info\n- Light traffic in most downtown areas.");
-      $('visaResults').innerHTML = marked.parse("### Visa Sample Info\n- Most visitors can enter visa-free for up to 30 days.");
+  // Match city or fallback
+  const match = data.samples.destinations.find(d =>
+    d.name.toLowerCase().includes(loc)
+  ) || data.samples.destinations[0];
+
+  // Show destination info
+  $('placesResults').innerHTML = marked.parse(
+    `# ${match.name}
+**Overview**: ${match.overview}
+
+**Top Attractions**
+${match.top_attractions.map(a => '- ' + a).join('\n')}
+
+**Local Food**
+${match.food.map(a => '- ' + a).join('\n')}
+
+**Best Time to Visit**: ${match.best_time}
+
+**Travel Tips**
+${match.tips.map(a => '- ' + a).join('\n')}`
+  );
+
+  // Weather info (from samples.weather)
+  const wkey = Object.keys(data.samples.weather).find(k =>
+    k.toLowerCase().includes(loc)
+  ) || Object.keys(data.samples.weather)[0];
+  const w = data.samples.weather[wkey];
+  $('weatherResults').innerHTML = marked.parse(
+    `### Weather — ${wkey}
+- Now: ${w.now}
+- Next 3 Days:
+${w["3day"].map(d => '- ' + d).join('\n')}`
+  );
+
+  // Visa info (from samples.visa)
+  const visaEntries = Object.entries(data.samples.visa);
+  const visaMatch = visaEntries.find(([key]) =>
+    key.toLowerCase().includes(match.name.split(',')[1]?.trim().toLowerCase())
+  ) || visaEntries[0];
+  $('visaResults').innerHTML = marked.parse(
+    `### Visa Information
+${visaMatch[0].replace(/_/g, ' → ')}  
+${visaMatch[1]}`
+  );
+
+  // Traffic sample
+  const traffic = data.samples.traffic_examples[Math.floor(Math.random() * data.samples.traffic_examples.length)];
+  $('trafficResults').innerHTML = marked.parse(
+    `### Traffic — ${traffic.from} → ${traffic.to}
+${traffic.advice}`
+  );
+
+  // Reveal sections dynamically
+  hideSections();
+  $('placesSection').classList.remove('hidden');
+  $('weatherSection').classList.remove('hidden');
+  $('visaSection').classList.remove('hidden');
+  $('trafficSection').classList.remove('hidden');
+});
+
     });
   </script>
 </body>
