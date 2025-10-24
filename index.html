@@ -24,12 +24,11 @@
     .card-hover { transition: transform .2s ease, box-shadow .2s ease; }
     .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(93,92,222,.15);}
     .loading-spinner { border: 3px solid #f3f3f3; border-top: 3px solid #5D5CDE; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  </style>
-  @keyframes float {
+     @keyframes float {
   0% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, -10px); }
   100% { transform: translate(-50%, 0); }
+  </style>
 }
 img[alt="Eagle Bird"] {
   animation: float 6s ease-in-out infinite;
